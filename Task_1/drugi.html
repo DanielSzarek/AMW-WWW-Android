@@ -1,14 +1,68 @@
+<!doctype html>
 <html>
-<header>
-  My second Page
-</header>
+
+<head>
+  <title>My second Page</title>
+  <!-- CSS Style -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- JavaScript -->
+  <script type="text/javascript" src="functions.js"></script>
+</head>
+
 <body>
+  <h1 id="ColorChange">Welcome to site about programming</h1>
   <header>
-    <ul>
-      <li><a href="index.html">Main page</a></li>
-    </ul>
+    <center>
+      <ul>
+        <li><a href="index.html">Main page</a></li>
+        <li><button type="button" onclick="changeColor()">CLICK ME!</button></li>
+      </ul>
+    </center>
   </header>
-  aaa
+  <h3>Below quotes is the most important part of that page</h3>
+  <strong>
+    <blockquote>“Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”</blockquote>
+  </strong>
+  <h3>I hope you enjoy next meme</h3></br />
+  <center>
+    <img class="meme2" src="img/meme2.jpg">
+  </center>
+  <br />
+  <h3>And very funny video about programmer</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/_q-l6Cn6WxY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <br />
+  <h3>Here is the ranking <b>top 3</b> of my favourite Python modules and frameworks</h3>
+  <center>
+    <table>
+      <tr>
+        <td>Place</td>
+        <td>Name</td>
+        <td>Link</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Django</td>
+        <td><a href="https://www.djangoproject.com">https://www.djangoproject.com</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Requests</td>
+        <td><a href="https://requests.kennethreitz.org/en/master/">https://requests.kennethreitz.org/en/master/</a></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Cryptography</td>
+        <td><a href="https://cryptography.io/en/latest/">https://cryptography.io/en/latest/</a></td>
+      </tr>
+    </table>
+
+    <br />
+    <button type="button" onclick="addElement();">CLICK ONE MORE TIME!</button>
+    <button type="button" onclick="loopStart();">DONT CLICK ME!</button>
+    <div id="figures">
+      <div class="figure" onclick="addFigure();">TRY TO DO SOME MAGIC! (CLICK)</div>
+    </div>
+  </center>
 </body>
 
 </html>
