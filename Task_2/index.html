@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <h1 id="hello">Hello, world!</h1>
+  <div>
+    <button class="btn btn-primary" onclick="move_element('L');">Move h1 left</button>
+    <button class="btn btn-primary" onclick="move_element('R');">Move h1 right</button>
+  </div>
+  <h2 id="id02">Hello Poland!</h2>
+  <div>
+    <button class="btn btn-primary" onclick="removeElement();">Remove element above!</button>
+  </div>
+  <ul id="myList">
+    <li>BMW</li>
+    <li>Honda</li>
+  </ul>
+
+  <p class="example">
+    Lorem ipsum
+  </p>
+  <h2 id="Change_my_size">
+    Change my size!
+  </h2>
+  <div>
+    <button class="btn btn-primary" onclick="change_size('B');">Make it bigger</button>
+    <button class="btn btn-primary" onclick="change_size('S');">Make it smaller</button>
+  </div>
+  <button type="button" class="btn btn-primary" onclick="change_value();">
+    Notifications <span class="badge badge-light"></span>
+  </button>
+
+  <br />
+
+  <div class="progress">
+    <div id="progress_bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 2%"></div>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary" onclick="update_progress_bar();">
+      Start progress bar<span class="badge badge-light"></span>
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-primary" onclick="change_background_color();">Change background color</button>
+  </div>
+  <div id="newButton">
+    <button class="btn btn-primary" onclick="new_button()">Create button</button>
+  </div>
+  <p id=promptMsg>
+    Click prompt for me and give your name!
+  </p>
+  <div>
+    <button class="btn btn-primary" onclick="alertMe();">Alert</button>
+    <button class="btn btn-primary" onclick="promptMe();">Prompt</button>
+  </div>
+  <br />
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Write here something</span>
+    </div>
+    <input id=toReverse type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    <button class="btn btn-primary" onclick="changeInput();">Reverse the text!</button>
+  </div>
+  <p id=browser_info></p>
+  <div>
+    <button class="btn btn-primary" onclick="dontClick();">Please don't click that!</button>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="functions.js"></script>
+
+</body>
+
+</html>
