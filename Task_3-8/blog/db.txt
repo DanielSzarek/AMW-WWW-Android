@@ -1,0 +1,188 @@
+1. ========================================================
+<bound method DbQuery.query_1 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * FROM blog_post;
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(1, 'What is Lorem Ipsum?', "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 24, 36))
+(2, 'Why do we use it?', "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)!", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 25, 32))
+(3, 'The standard Lorem Ipsum passage, used since the 1500s', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 26, 7))
+(4, 'Made in console', 'Test console Post', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 17, 17, 35, 2, 570199))
+(18, 'Test Post', 'This is a test post.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 9, 31, 233043))
+(19, 'What an amazing day!', 'Yeah, that day was amazing.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 10, 55, 300733))
+(20, 'new post', 'Nice new post from code', None, 1, None)
+(21, 'new post', 'Nice new post from code', None, 1, None)
+(22, 'new post', 'Nice new post from code', datetime.datetime(2019, 12, 2, 8, 7, 21), 1, datetime.datetime(2019, 12, 2, 8, 7, 21))
+(23, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 24, 42))
+(24, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 59, 33))
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+2. ========================================================
+<bound method DbQuery.query_10 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * FROM blog_post ORDER BY id DESC LIMIT 1;
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+3. ========================================================
+<bound method DbQuery.query_11 of <__main__.DbQuery object at 0x035690D0>>
+SELECT COUNT(*) FROM blog_post;
+[(12,)]
+4. ========================================================
+<bound method DbQuery.query_12 of <__main__.DbQuery object at 0x035690D0>>
+SELECT text FROM blog_post WHERE title LIKE 'T%';
+['text']
+('"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',)
+('This is a test post.',)
+5. ========================================================
+<bound method DbQuery.query_13 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * FROM blog_post WHERE title in ('Made in console', 'Test Post');
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(4, 'Made in console', 'Test console Post', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 17, 17, 35, 2, 570199))
+(18, 'Test Post', 'This is a test post.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 9, 31, 233043))
+6. ========================================================
+<bound method DbQuery.query_14 of <__main__.DbQuery object at 0x035690D0>>
+SELECT created_date AS Created FROM blog_post;
+['Created']
+(datetime.datetime(2019, 11, 11, 15, 24, 36),)
+(datetime.datetime(2019, 11, 11, 15, 25, 32),)
+(datetime.datetime(2019, 11, 11, 15, 26, 7),)
+(datetime.datetime(2019, 11, 17, 17, 35, 2, 570199),)
+(datetime.datetime(2019, 12, 2, 7, 9, 31, 233043),)
+(datetime.datetime(2019, 12, 2, 7, 10, 55, 300733),)
+(None,)
+(None,)
+(datetime.datetime(2019, 12, 2, 8, 7, 21),)
+(datetime.datetime(2019, 12, 2, 11, 24, 42),)
+(datetime.datetime(2019, 12, 2, 11, 59, 33),)
+(datetime.datetime(2019, 12, 2, 12, 7, 29),)
+7. ========================================================
+<bound method DbQuery.query_15 of <__main__.DbQuery object at 0x035690D0>>
+SELECT blog_post.text, auth_user.id FROM blog_post INNER JOIN auth_user ON blog_post.author_id = auth_user.id;
+['text', 'id']
+("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 1)
+("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)!", 1)
+('"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', 1)
+('Test console Post', 1)
+('This is a test post.', 1)
+('Yeah, that day was amazing.', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+8. ========================================================
+<bound method DbQuery.query_16 of <__main__.DbQuery object at 0x035690D0>>
+SELECT blog_post.text, auth_user.id FROM blog_post LEFT JOIN auth_user ON blog_post.author_id = auth_user.id;
+['text', 'id']
+("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 1)
+("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)!", 1)
+('"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', 1)
+('Test console Post', 1)
+('This is a test post.', 1)
+('Yeah, that day was amazing.', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+('Nice new post from code', 1)
+9. ========================================================
+<bound method DbQuery.query_17 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * from blog_post GROUP BY author_id;
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+10. ========================================================
+<bound method DbQuery.query_18 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * from blog_post GROUP BY author_id HAVING id>5 ORDER BY created_date;
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+11. ========================================================
+<bound method DbQuery.query_19 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * from blog_post WHERE EXISTS (SELECT * FROM auth_user);
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(1, 'What is Lorem Ipsum?', "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 24, 36))
+(2, 'Why do we use it?', "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)!", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 25, 32))
+(3, 'The standard Lorem Ipsum passage, used since the 1500s', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 26, 7))
+(4, 'Made in console', 'Test console Post', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 17, 17, 35, 2, 570199))
+(18, 'Test Post', 'This is a test post.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 9, 31, 233043))
+(19, 'What an amazing day!', 'Yeah, that day was amazing.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 10, 55, 300733))
+(20, 'new post', 'Nice new post from code', None, 1, None)
+(21, 'new post', 'Nice new post from code', None, 1, None)
+(22, 'new post', 'Nice new post from code', datetime.datetime(2019, 12, 2, 8, 7, 21), 1, datetime.datetime(2019, 12, 2, 8, 7, 21))
+(23, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 24, 42))
+(24, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 59, 33))
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+12. ========================================================
+<bound method DbQuery.query_2 of <__main__.DbQuery object at 0x035690D0>>
+SELECT id, title, created_date FROM blog_post;
+['id', 'title', 'created_date']
+(1, 'What is Lorem Ipsum?', datetime.datetime(2019, 11, 11, 15, 24, 36))
+(2, 'Why do we use it?', datetime.datetime(2019, 11, 11, 15, 25, 32))
+(3, 'The standard Lorem Ipsum passage, used since the 1500s', datetime.datetime(2019, 11, 11, 15, 26, 7))
+(4, 'Made in console', datetime.datetime(2019, 11, 17, 17, 35, 2, 570199))
+(18, 'Test Post', datetime.datetime(2019, 12, 2, 7, 9, 31, 233043))
+(19, 'What an amazing day!', datetime.datetime(2019, 12, 2, 7, 10, 55, 300733))
+(20, 'new post', None)
+(21, 'new post', None)
+(22, 'new post', datetime.datetime(2019, 12, 2, 8, 7, 21))
+(23, 'new post', datetime.datetime(2019, 12, 2, 11, 24, 42))
+(24, 'new post', datetime.datetime(2019, 12, 2, 11, 59, 33))
+(25, 'new post', datetime.datetime(2019, 12, 2, 12, 7, 29))
+13. ========================================================
+<bound method DbQuery.query_3 of <__main__.DbQuery object at 0x035690D0>>
+SELECT DISTINCT author_id FROM blog_post;
+['author_id']
+(1,)
+14. ========================================================
+<bound method DbQuery.query_4 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * FROM blog_post WHERE (id<4 OR id >18) AND author_id=1;
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(1, 'What is Lorem Ipsum?', "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 24, 36))
+(2, 'Why do we use it?', "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)!", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 25, 32))
+(3, 'The standard Lorem Ipsum passage, used since the 1500s', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 26, 7))
+(19, 'What an amazing day!', 'Yeah, that day was amazing.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 10, 55, 300733))
+(20, 'new post', 'Nice new post from code', None, 1, None)
+(21, 'new post', 'Nice new post from code', None, 1, None)
+(22, 'new post', 'Nice new post from code', datetime.datetime(2019, 12, 2, 8, 7, 21), 1, datetime.datetime(2019, 12, 2, 8, 7, 21))
+(23, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 24, 42))
+(24, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 59, 33))
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+15. ========================================================
+<bound method DbQuery.query_5 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * FROM blog_post ORDER BY created_date DESC;
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+(24, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 59, 33))
+(23, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 24, 42))
+(22, 'new post', 'Nice new post from code', datetime.datetime(2019, 12, 2, 8, 7, 21), 1, datetime.datetime(2019, 12, 2, 8, 7, 21))
+(19, 'What an amazing day!', 'Yeah, that day was amazing.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 10, 55, 300733))
+(18, 'Test Post', 'This is a test post.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 9, 31, 233043))
+(20, 'new post', 'Nice new post from code', None, 1, None)
+(21, 'new post', 'Nice new post from code', None, 1, None)
+(4, 'Made in console', 'Test console Post', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 17, 17, 35, 2, 570199))
+(3, 'The standard Lorem Ipsum passage, used since the 1500s', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 26, 7))
+(2, 'Why do we use it?', "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)!", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 25, 32))
+(1, 'What is Lorem Ipsum?', "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 24, 36))
+16. ========================================================
+<bound method DbQuery.query_6 of <__main__.DbQuery object at 0x035690D0>>
+INSERT INTO blog_post ('title', 'text', 'author_id', 'created_date')VALUES ('new post', 'Nice new post from code', 1, (SELECT datetime('now')));
+17. ========================================================
+<bound method DbQuery.query_7 of <__main__.DbQuery object at 0x035690D0>>
+SELECT * FROM blog_post WHERE created_date IS NOT NULL;
+['id', 'title', 'text', 'published_date', 'author_id', 'created_date']
+(1, 'What is Lorem Ipsum?', "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 24, 36))
+(2, 'Why do we use it?', "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)!", datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 25, 32))
+(3, 'The standard Lorem Ipsum passage, used since the 1500s', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 11, 15, 26, 7))
+(4, 'Made in console', 'Test console Post', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 11, 17, 17, 35, 2, 570199))
+(18, 'Test Post', 'This is a test post.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 9, 31, 233043))
+(19, 'What an amazing day!', 'Yeah, that day was amazing.', datetime.datetime(2019, 12, 4, 20, 31, 36), 1, datetime.datetime(2019, 12, 2, 7, 10, 55, 300733))
+(20, 'new post', 'Nice new post from code', None, 1, None)
+(21, 'new post', 'Nice new post from code', None, 1, None)
+(22, 'new post', 'Nice new post from code', datetime.datetime(2019, 12, 2, 8, 7, 21), 1, datetime.datetime(2019, 12, 2, 8, 7, 21))
+(23, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 24, 42))
+(24, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 11, 59, 33))
+(25, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 2, 12, 7, 29))
+(46, 'new post', 'Nice new post from code', None, 1, datetime.datetime(2019, 12, 4, 20, 33, 19))
+18. ========================================================
+<bound method DbQuery.query_8 of <__main__.DbQuery object at 0x035690D0>>
+UPDATE blog_post SET published_date=(SELECT datetime('now')) WHERE id<20;
+19. ========================================================
+<bound method DbQuery.query_9 of <__main__.DbQuery object at 0x035690D0>>
+DELETE FROM blog_post WHERE id > 25;
