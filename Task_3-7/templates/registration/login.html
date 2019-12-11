@@ -9,29 +9,21 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href="//fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-{#<div class="font-effect-shadow-multiple">#}
-{#    <h1><a href="/">Daniel Blog</a></h1>#}
-{#</div>#}
-
+</head>
 <body>
     <div class="page-header">
-        {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-              Użytkownik: {{ user.username }}
-            <a href="{% url 'logout' %}">wyloguj</a>
-        {% else %}
-            Użytkownik niezalowany!
-            <a href="{% url 'login' %}">login</a>
-        {% endif %}
         <h1><a href="/">Daniel's Blog</a></h1>
     </div>
     <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
-            </div>
+        <div style="text-align: center;">
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form>
         </div>
     </div>
 </body>
 </html>
+
