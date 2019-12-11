@@ -7,6 +7,11 @@ from django.shortcuts import redirect
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    # These prints are here only to show session and cookies
+    for key, value in request.session.items():
+        print('{} => {}'.format(key, value))
+    for key, value in request.COOKIES.items():
+        print('{} => {}'.format(key, value))
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
