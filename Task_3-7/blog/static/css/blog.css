@@ -75,7 +75,6 @@ h1, h2, h3, h4 {
     color: white;
 }
 
-
 /* Style the Image Used to Trigger the Modal */
 #myImg {
   border-radius: 5px;
@@ -85,7 +84,6 @@ h1, h2, h3, h4 {
 
 #myImg:hover {opacity: 0.7;}
 
-/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -169,3 +167,12 @@ h1, h2, h3, h4 {
 }
 
 .btn:hover {opacity: 0.6}
+
+img.sticky {
+  float: right;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 25%;
+  height: 25%;
+}
