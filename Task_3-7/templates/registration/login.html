@@ -10,6 +10,46 @@
     <link href="//fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+a {
+  color: dodgerblue;
+}
+</style>
 <body>
     <div class="page-header">
         <h1><a href="/">Daniel's Blog</a></h1>
@@ -20,10 +60,22 @@
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
+                <label>
+                    <input type="checkbox" onclick="passwordShow()">
+                </label>Show Password
                 <button type="submit">Login</button>
             </form>
         </div>
     </div>
+<script type="text/javascript">function passwordShow() {
+  var x = document.getElementById("id_password");
+  console.log(x);
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}</script>
 </body>
 </html>
 

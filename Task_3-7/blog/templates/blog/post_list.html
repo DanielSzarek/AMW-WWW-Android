@@ -1,7 +1,9 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block content %}
+
 {% for post in posts %}
+    <button class="accordion">{{ post.title }}</button>
     <div class="post">
         <div class="date">
             <p>published: {{ post.published_date }}</p>
