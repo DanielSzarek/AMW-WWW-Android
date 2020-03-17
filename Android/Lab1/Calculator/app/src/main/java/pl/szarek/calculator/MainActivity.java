@@ -2,6 +2,7 @@ package pl.szarek.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,12 +25,14 @@ public class MainActivity extends AppCompatActivity {
         final TextView text = findViewById(R.id.resultTextView);
         Button button = findViewById(R.id.calculateButton);
         button.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onClick(View v) {
                 String choosenSing = String.valueOf(sign.getSelectedItem());
-                int choosenValue = Integer.valueOf(String.valueOf(value1.getSelectedItem()));
-                int choosenValue2 = Integer.valueOf(String.valueOf(value2.getSelectedItem()));
-                int value;
+                float choosenValue = Integer.valueOf(String.valueOf(value1.getSelectedItem()));
+                float choosenValue2 = Integer.valueOf(String.valueOf(value2.getSelectedItem()));
+                float value = 0;
+                boolean error = false;
 
                 switch(choosenSing) {
                     case "+":
@@ -42,12 +45,20 @@ public class MainActivity extends AppCompatActivity {
                         value = choosenValue * choosenValue2;
                         break;
                     case "/":
-                        value = choosenValue / choosenValue2;
+                        if (choosenValue2 == 0) {
+                            error = true;
+                            text.setText("Nie dziel przez zero!");
+                        }
+                        else {
+                            value = choosenValue / choosenValue2;
+                        }
                         break;
                     default:
                         value = 0;
                 }
-                text.setText(String.valueOf(value));
+                if (!error) {
+                    text.setText(String.format("%.3f%n", value));
+                }
             }
         });
     }
