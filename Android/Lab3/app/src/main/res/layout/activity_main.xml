@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hello_world_text_view"
+            android:text="Hello World!"
+            android:textSize="@dimen/default_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/test_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/hello_world_text_view"
+            app:layout_constraintTop_toBottomOf="@id/hello_world_text_view"
+            android:layout_marginTop="@dimen/default_margin" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/test_check_box"
+            android:text="@string/check_box_text"
+            app:layout_constraintStart_toEndOf="@id/hello_world_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hello_world_text_view"
+            android:layout_marginTop="@dimen/default_margin" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/test_radio_group"
+            app:layout_constraintStart_toStartOf="@id/test_switch"
+            app:layout_constraintEnd_toEndOf="@id/test_switch"
+            app:layout_constraintTop_toBottomOf="@id/test_switch"
+            android:layout_marginTop="@dimen/default_margin">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_button_1_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_button_2_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_button_3_text" />
+        </RadioGroup>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/testSpinner"
+            android:entries="@array/spinner_items"
+            app:layout_constraintStart_toEndOf="@id/test_radio_group"
+            app:layout_constraintEnd_toEndOf="@id/hello_world_text_view"
+            app:layout_constraintTop_toTopOf="@id/test_radio_group"
+            app:layout_constraintBottom_toBottomOf="@id/test_radio_group"
+            android:layout_marginStart="@dimen/default_margin" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:id="@+id/test_1_image_view"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="@id/hello_world_text_view"
+            app:layout_constraintEnd_toEndOf="@id/hello_world_text_view"
+            app:layout_constraintTop_toBottomOf="@id/test_radio_group"
+            android:layout_marginTop="@dimen/default_margin" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:id="@+id/test_2_image_view"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="@id/test_1_image_view"
+            app:layout_constraintEnd_toEndOf="@id/test_1_image_view"
+            app:layout_constraintTop_toBottomOf="@id/test_1_image_view"
+            android:layout_marginTop="@dimen/default_margin" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:id="@+id/test_3_image_view"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="@id/test_2_image_view"
+            app:layout_constraintEnd_toEndOf="@id/test_2_image_view"
+            app:layout_constraintTop_toBottomOf="@id/test_2_image_view"
+            android:layout_marginTop="@dimen/default_margin" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_activity_button"
+            android:text="@string/next_activity_button_text"
+            android:drawableEnd="@drawable/icon_arrow_right"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/test_3_image_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/default_margin" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

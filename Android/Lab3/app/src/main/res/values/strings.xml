@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Lab3</string>
+    <string name="radio_button_1_text">Option 1</string>
+    <string name="radio_button_2_text">Option 2</string>
+    <string name="radio_button_3_text">Option 3</string>
+    <string name="next_activity_button_text">Go to NextActivity</string>
+    <string name="check_box_text">Check me!</string>
+
+    <string-array name="spinner_items">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>
