@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Lab4</string>
+    <string name="info">Informacje o aplikacji:\nWersja: 1.0\nAutor: Daniel Szarek\nWszystkie prawa zastrzeżone!</string>
+
+    <string-array name="types_array">
+        <item>Komputery</item>
+        <item>Telefony</item>
+        <item>RTV</item>
+        <item>AGD</item>
+        <item>Drony</item>
+        <item>Gry</item>
+        <item>Akcesoria</item>
+    </string-array>
+
+    <string-array name="categories_array">
+        <item>Lodówki</item>
+        <item>Zamrażarki</item>
+        <item>Zmywarki</item>
+        <item>Piekarniki</item>
+        <item>Kuchenki</item>
+    </string-array>
+</resources>
