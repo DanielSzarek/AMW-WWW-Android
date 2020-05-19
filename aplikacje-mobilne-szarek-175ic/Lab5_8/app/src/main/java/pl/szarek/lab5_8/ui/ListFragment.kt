@@ -1,13 +1,10 @@
 package pl.szarek.lab5_8.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -17,20 +14,13 @@ import pl.szarek.lab5_8.database.ApplicationDatabase
 import pl.szarek.lab5_8.database.dao.LanguageDao
 import pl.szarek.lab5_8.database.entity.Language
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(R.layout.fragment_list) {
     private lateinit var database: ApplicationDatabase
     private lateinit var languageDao: LanguageDao
 
-    private lateinit var addButton: FloatingActionButton
     private lateinit var languagesRecyclerView: RecyclerView
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_list, container, false)
-    }
+    var listener: MainFragment.LanguageClickListener? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,7 +29,6 @@ class ListFragment : Fragment() {
         languageDao = database.getLanguageDao()
 
         findViews()
-        setListeners()
         addLanguages()
     }
 
@@ -62,27 +51,20 @@ class ListFragment : Fragment() {
     }
 
     private fun showLanguages(languages: List<Language>) {
-        val adapter = RecyclerViewAdapter(languages)
+        val adapter = RecyclerViewAdapter(languages, listener)
         languagesRecyclerView.adapter = adapter
     }
 
     private fun findViews() {
-        addButton = requireView().findViewById(R.id.add_button)
         languagesRecyclerView = requireView().findViewById(R.id.languages_recycler_view)
     }
 
-    private fun setListeners() {
-        addButton.setOnClickListener {
-            goToAddFragment()
-        }
-    }
-
-    private fun goToAddFragment() {
-        (activity as? MainActivity)?.showAddFragment()
-    }
-
     companion object {
-        fun getInstance(): ListFragment =
-            ListFragment()
+        fun getInstance(listener: MainFragment.LanguageClickListener): ListFragment {
+            val fragment = ListFragment()
+            fragment.listener = listener
+
+            return fragment
+        }
     }
 }
